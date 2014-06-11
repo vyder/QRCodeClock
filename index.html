@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>QRCodeClock</title>
+		<script type="text/javascript" src="./lib/qrcode.min.js"></script>
+	</head>
+
+	<body>
+		<style type='text/css'>
+			#container {
+				width: 256px;
+				margin: 0 auto;
+			}
+			#code {
+				width: 256px;
+				height: 256px;
+
+				margin: 	0 auto;
+				margin-top: 150px;
+			}
+		</style>
+
+		<div id='container'>
+			<div id='code'></div>
+		</div>
+
+		<script type='text/javascript'>
+			(function() {
+				var qrCode = new QRCode('code');
+				var intervalID = setInterval(function() {
+					qrCode.clear();
+					qrCode.makeCode(new Date().toString());
+				}, 1000);
+			})();
+		</script>
+	</body>
+</html>
